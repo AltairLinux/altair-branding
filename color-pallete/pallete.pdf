@@ -1,45 +1,93 @@
-from reportlab.lib.pagesizes import A4
-from reportlab.pdfgen import canvas
-from reportlab.lib import colors
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
 
-# Define Altair Linux colors
-palette = [
-    {"name": "Primary: Deep Space Navy", "hex": "#0B1D3A"},
-    {"name": "Accent: Stellar Cyan", "hex": "#3FD0FF"},
-    {"name": "Secondary: Solar Gold", "hex": "#FFC857"},
-    {"name": "Neutral: Soft White", "hex": "#F5F7FA"},
-    {"name": "Secondary Neutral: Light Gray", "hex": "#B0B8C2"},
-]
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
 
-# Create PDF
-c = canvas.Canvas("color_palette.pdf", pagesize=A4)
-width, height = A4
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>
+endobj
 
-# Layout variables
-block_width = 400
-block_height = 100
-margin_top = 700
-margin_left = 50
-spacing = 20
+4 0 obj
+<< /Length 1234 >>  % placeholder length, you can recompute later
+stream
+q
+% First color: Primary #0B1D3A
+0.043 0.114 0.227 rg  % RGB normalized to 0-1
+50 700 400 80 re
+f
+BT
+/F1 12 Tf
+0.9 0.9 0.9 rg
+60 765 Td
+(Primary: Deep Space Navy #0B1D3A) Tj
+ET
 
-# Draw title
-c.setFont("Helvetica-Bold", 24)
-c.drawString(margin_left, margin_top + 50, "Altair Linux Color Palette")
+% Second color: Accent #3FD0FF
+0.247 0.816 1 rg
+50 600 400 80 re
+f
+BT
+/F1 12 Tf
+0 0 0 rg
+60 665 Td
+(Accent: Stellar Cyan #3FD0FF) Tj
+ET
 
-for i, color in enumerate(palette):
-    y = margin_top - i * (block_height + spacing)
-    
-    # Draw color rectangle
-    c.setFillColor(colors.HexColor(color["hex"]))
-    c.rect(margin_left, y, block_width, block_height, fill=1, stroke=0)
-    
-    # Draw color name & hex
-    c.setFillColor(colors.black if color["name"] != "Neutral: Soft White" else colors.HexColor("#0B1D3A"))
-    c.setFont("Helvetica-Bold", 14)
-    c.drawString(margin_left + 10, y + block_height / 2 + 5, color["name"])
-    c.setFont("Helvetica", 12)
-    c.drawString(margin_left + 10, y + block_height / 2 - 15, color["hex"])
+% Third color: Secondary #FFC857
+1 0.784 0.341 rg
+50 500 400 80 re
+f
+BT
+/F1 12 Tf
+0 0 0 rg
+60 565 Td
+(Secondary: Solar Gold #FFC857) Tj
+ET
 
-# Save PDF
-c.save()
-print("Altair Linux color palette PDF generated as color_palette.pdf")
+% Fourth color: Neutral #F5F7FA
+0.961 0.968 0.980 rg
+50 400 400 80 re
+f
+BT
+/F1 12 Tf
+0 0 0 rg
+60 465 Td
+(Neutral: Soft White #F5F7FA) Tj
+ET
+
+% Fifth color: Secondary Neutral #B0B8C2
+0.69 0.722 0.757 rg
+50 300 400 80 re
+f
+BT
+/F1 12 Tf
+0 0 0 rg
+60 365 Td
+(Secondary Neutral: Light Gray #B0B8C2) Tj
+ET
+
+Q
+endstream
+endobj
+
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+
+xref
+0 6
+0000000000 65535 f 
+0000000010 00000 n 
+0000000060 00000 n 
+0000000110 00000 n 
+0000000210 00000 n 
+0000000410 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+520
+%%EOF
